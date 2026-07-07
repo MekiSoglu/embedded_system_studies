@@ -24,16 +24,24 @@ int main(void)
     RCC->AHB1ENR |= RCC_AHB1ENR_GPIODEN;
     RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
 
+    /*Push Button */
     GPIOA->MODER &= ~(0b11UL << (PUSH_BUTTON * 2));
     GPIOA->PUPDR &= ~(0b11UL << (PUSH_BUTTON * 2));
     GPIOA->PUPDR |=  (0b10UL << (PUSH_BUTTON * 2));
 
+    /*Green Led */
     GPIOD->MODER &= ~(0b11UL << (LED_PIN_GREEN  * 2));
     GPIOD->MODER |=  (0b01UL << (LED_PIN_GREEN  * 2));
+
+    /*Orange Led */
     GPIOD->MODER &= ~(0b11UL << (LED_PIN_ORANGE * 2));
     GPIOD->MODER |=  (0b01UL << (LED_PIN_ORANGE * 2));
+
+    /*Red Led */
     GPIOD->MODER &= ~(0b11UL << (LED_PIN_RED    * 2));
     GPIOD->MODER |=  (0b01UL << (LED_PIN_RED    * 2));
+
+    /*Blue Led */
     GPIOD->MODER &= ~(0b11UL << (LED_PIN_BLUE   * 2));
     GPIOD->MODER |=  (0b01UL << (LED_PIN_BLUE   * 2));
 
